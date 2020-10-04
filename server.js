@@ -106,26 +106,20 @@ console.log (currentPlayer[room])
 //    
     //the client is to receive a username
   client.on("username", username => {
-    // console.log("username received")
-    // console.log(username);
-    user = {
+  user = {
       name: username.userName,
       id: client.id,
       room:username.room
     };
-    // if (Object.values(users).includes(user)==true){
-    //   console.log("useralreadyexists")
-    // }
-    // else{
-      var room = username.room
+    var room = username.room
       if (usernames[room].indexOf(username.userName)!==-1){
         console.log("useralreadyexists")
         client.emit("rejected")
         client.disconnect();
       }
       else{
-        usernames[room].push(username.userName)
-        client.join(username.room)
+      usernames[room].push(username.userName)
+      client.join(username.room)
       users[client.id] = user;
       client.broadcast.to(room).emit("connected", user);
       var players = Object.values(users)
