@@ -85,6 +85,7 @@ const nextPlayer = function(room,players){
 //   i[room]=0
 //   console.log("i = 0 now")  
 // }
+if(players[i[room]]){
 currentPlayer[room]= players[i[room]].name
 console.log("currentplayer")
 console.log (currentPlayer[room])
@@ -94,7 +95,7 @@ console.log (currentPlayer[room])
         i[room]=0
     }    
   } 
-
+}
 
 
 
@@ -182,6 +183,7 @@ client.on("nextPlayer",room=>{
     players = players.filter((player)=>player.room===room)
     console.log(players)
     console.log(i[room])
+    if(players[i[room]]){
     currentPlayer[room]=players[i[room]].name
 //broadcasted to otheres and also emit the next player in line to others
     io.to(room).emit("sentenceBroadcast",{
@@ -193,6 +195,7 @@ client.on("nextPlayer",room=>{
     if(i[room]>players.length-1){
         i[room]=0
     }
+}
 })
 
 //the server receives the message
