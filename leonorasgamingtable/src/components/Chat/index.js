@@ -16,13 +16,13 @@ function Chat(){
 
  
 
-  const socket = io("http://localhost:3001", {autoConnect:false,
-  transports: ["websocket", "polling"]
-});
-// const socket = openSocket ("wss://leonorasgamingroom.herokuapp.com/",{autoConnect:false,
-
-//     transports:["websocket","polling"]
+//   const socket = io("http://localhost:3001", {autoConnect:false,
+//   transports: ["websocket", "polling"]
 // });
+const socket = openSocket ("wss://leonoraexquisite.herokuapp.com/",{
+
+    transports:["websocket","polling"]
+});
 
 //referenced mchatwindow
 const chatwindowRef = useRef();
