@@ -146,7 +146,12 @@ useEffect(()=>{
     });
 
     socket.on("start",info=>{
-      setAllsentences((allStorySegments) => [...allStorySegments, ...info.segments])
+      setAllStorySegments((allStorySegments) => [...allStorySegments, ...info.segments])
+      // var tempStory = allStorySegments.join(" ")
+      // console.log(tempStory)
+      // setStory(tempStory)
+      // console.log('story')
+      // console.log(story)
         setCurrentPlayer(info.currentPlayer)
         opencurtain();
       if (info.currentPlayer===userName){
@@ -174,6 +179,11 @@ useEffect(()=>{
       setCurrentPlayer(segment.player);
       setAllStorySegments((allStorySegments) => [...allStorySegments, segment.text
       ])
+      // var tempStory = allStorySegments.join(' ')
+      // setStory(tempStory)
+      // console.log('story')
+      // console.log(story)
+
       if (segment.player===userName){
         setTurn("on")
       }
@@ -502,21 +512,8 @@ socket.on("nextPlayer",sentCurrentPlayer=>{
 return (
 //everything
 <div className="allContainer">
-<div className={"finalPoemModal "+(poemModal==="on"? "":"invisible")}>
 
-    <div className={"finalPoemModalContent "+(poemModal==="on"? "visible":"invisible")}>
-    <div className="closeModalPoem" onClick={closePoem}>X</div>
 
-    <ul className="FinalPoemText">
-                
-                {allsentences.map((sentence, index) => (
-                  <li key={index}>{sentence}</li>
-                ))}
-              </ul>
-    </div>
-    <button className="downloadButton"><a href={"data:text/plain;charset=utf-8, "+ JSON.stringify(allsentences,null,1)} download="poem.txt">download poem</a></button>
-
- </div>
 <div className={"rules "+(rules ==="on"? "":"invisible")}>
       <div className={"rulesContent "+(rules ==="on"? "visible":"invisible")}>
         <div className="closeRules" onClick={closeRules}>X</div>
@@ -566,7 +563,7 @@ return (
  
       <div className={"title "+(interior==="on"?"titleAnimate": "invisible")}>
       <div className={interior==="on"?"titleText":"invisible"}>welcome {userName}</div>
-      <div className={interior==="on"?"titleText":"invisible"}><h1>let's play Exquisite Corps!</h1></div>
+      <div className={interior==="on"?"titleText":"invisible"}><h1>let's play Exquisite Corpse!</h1></div>
       <div className={interior==="on"?"titleText":"invisible"}>current player : {currentPlayer}</div>
         {/* the game sentence display would go here */}
       </div>
@@ -582,7 +579,7 @@ return (
       <button className={"submitbutton "+(turn==="on"?"": "invisible")} onClick={submitSegment}>broadcast Story Segment</button>
       {/* this is the button to skip to the next player */}
       <button className="turnButtom gameButton" onClick={nextPlayer}>next player</button>
-      <button className="gameButton"><a href={"data:text/plain;charset=utf-8, "+ JSON.stringify(allStorySegments,null,1)} download="poem.txt">download poem</a></button>
+      <button className="gameButton"><a href={"data:text/plain;charset=utf-8, "+ allStorySegments.join(' ')} download="poem.txt">download story</a></button>
       <button className="openRulesButton gameButton" onClick={openRules}>see Rules</button>
 
       </div>
