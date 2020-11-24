@@ -307,7 +307,8 @@ useEffect(()=>{
     setRotateHead("on")
 
     socket.open();
-    // console.log(storySegment)
+    console.log("emitted sentence to server")
+    console.log(storySegment)
 
     socket.emit("segment",{
       segment:storySegment,
