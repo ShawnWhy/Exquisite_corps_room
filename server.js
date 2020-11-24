@@ -149,7 +149,7 @@ currentPlayer[room]= players[i[room]].name
         // console.log(currentPlayer[room])
 
       client.emit("start", {
-        segments:segments[room],
+        // segments:segments[room],
        currentPlayer:currentPlayer[room]
       })
       i[room]++
@@ -180,7 +180,7 @@ client.on("nextPlayer",room=>{
       console.log('i')
       console.log(i)
     var room = segment.room
-    segments[room].push(segment.segment);
+    // segments[room].push(segment.segment);
     var players = Object.values(users) 
     players = players.filter((player)=>player.room===room)
     console.log(players)

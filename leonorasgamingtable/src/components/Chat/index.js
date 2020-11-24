@@ -146,7 +146,7 @@ useEffect(()=>{
     });
 
     socket.on("start",info=>{
-      setAllStorySegments((allStorySegments) => [...allStorySegments, ...info.segments])
+      // setAllStorySegments((allStorySegments) => [...allStorySegments, ...info.segments])
       // var tempStory = allStorySegments.join(" ")
       // console.log(tempStory)
       // setStory(tempStory)
