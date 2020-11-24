@@ -171,9 +171,9 @@ useEffect(()=>{
       })
 
     socket.on("segmentBroadcast", (segment)=>{
-      // console.log("newsentence")
-      // console.log(segment.text);
-      // console.log(segment.player)
+      console.log("newsentence")
+      console.log(segment.text);
+      console.log(segment.player)
       createEndDisplay(segment.text)
 
       setCurrentPlayer(segment.player);

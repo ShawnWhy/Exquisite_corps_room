@@ -175,16 +175,16 @@ client.on("nextPlayer",room=>{
 )
   //when a player emit a sentence, it is received here and is broadcasted to others
   client.on("segment", segment=>{
-      // console.log("received sentence")
-      // console.log(segment)    
-      // console.log('i')
-      // console.log(i)
+      console.log("received sentence")
+      console.log(segment)    
+      console.log('i')
+      console.log(i)
     var room = segment.room
     segments[room].push(segment.segment);
     var players = Object.values(users) 
     players = players.filter((player)=>player.room===room)
-    // console.log(players)
-    // console.log(i[room])
+    console.log(players)
+    console.log(i[room])
     if(players[i[room]]){
     currentPlayer[room]=players[i[room]].name
 //broadcasted to otheres and also emit the next player in line to others
@@ -192,7 +192,7 @@ client.on("nextPlayer",room=>{
       text:segment.segment,
       player:players[i[room]].name
     })
-    // console.log("server emitted sentencec")
+    console.log("server emitted sentencec")
     i[room]++
     if(i[room]>players.length-1){
         i[room]=0
