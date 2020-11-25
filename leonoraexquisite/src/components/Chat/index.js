@@ -4,7 +4,6 @@ import React, { useEffect, useState, useRef } from "react";
 import Style from "./chat.css"
 // import Moment from "react-moment";
 import reactDOM from "react-dom";
-import moment from "moment";
 import io from "socket.io-client";
 // import { set } from "mongoose";
 import classNames from "classnames";
@@ -88,9 +87,10 @@ const createEndDisplay =(segment)=>{
   
 
    var segmentString = segmentArray.join(" ");
+   return segmentString
   //  console.log(segmentString)
-   setSegmentEnd (segmentString)
-   setCurrentDisplay(segmentString)
+  //  setSegmentEnd (segmentString)
+  //  setCurrentDisplay(segmentString)
   //  console.log(segmentEnd)
 
 }
@@ -183,6 +183,7 @@ useEffect(()=>{
       console.log(segment.player)
       setTurnSegment(segment.text)
       setCurrentPlayer(segment.player);
+      setCurrentDisplay(segment.tail)
       setAllStorySegments((allStorySegments) => [...allStorySegments, segment.text
       ])
       // var tempStory = allStorySegments.join(' ')
@@ -309,14 +310,18 @@ useEffect(()=>{
   }
 
   //emits the sentence
-  const submitSegment = ()=>{
+  const submitSegment =()=>{
     setRotateHead("on")
-
+    let tail =  createEndDisplay(storySegment)
     socket.open();
+    console.log("tail=====  ")
+    console.log(tail)
     socket.emit("segment",{
       segment:storySegment,
+      tail:tail,
       room:roomSelect}
        )
+      
        console.log("emitted sentence to server")
        console.log(storySegment)
     setTimeout(() => {

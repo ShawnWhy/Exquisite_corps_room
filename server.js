@@ -190,7 +190,8 @@ client.on("nextPlayer",room=>{
 //broadcasted to otheres and also emit the next player in line to others
     io.to(room).emit("segmentBroadcast",{
       text:segment.segment,
-      player:players[i[room]].name
+      player:players[i[room]].name,
+      tail:segment.tail
     })
     console.log("server emitted sentencec")
     i[room]++
