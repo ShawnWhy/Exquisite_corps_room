@@ -74,7 +74,7 @@ const [maskFly, setMaskFly]=useState("off");
 // display the name of the current player
 const [currentPlayer, setCurrentPlayer]=useState("")
 //   var chatWindow = reactDOM.
-const [initialInstruction, setInitialInstruction]=useState("Welcome dear visitor, what would you like to be called?")
+const [initialInstruction, setInitialInstruction]=useState("Welcome dear visitor,  what would you like to be called?")
 const createEndDisplay =(segment)=>{
   // console.log(segment)
   // console.log('setend')
