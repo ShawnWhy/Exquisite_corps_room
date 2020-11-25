@@ -576,7 +576,7 @@ return (
 
 
       {/* this is the input div for the sentence, will only be visible when turn is on */}
-      <textarea  className = {"sentenceInput "+(turn==="on"?"": "invisible")} onChange={TypeSegment} type="text" placeholder="please proceed"></textarea>
+      <input  className = {"sentenceInput "+(turn==="on"?"": "invisible")} onChange={TypeSegment} type="text" placeholder="please proceed" ></input>
       <button className={"submitbutton "+(turn==="on"?"": "invisible")} onClick={submitSegment}>broadcast Story Segment</button>
       {/* this is the button to skip to the next player */}
       <button className="turnButtom gameButton" onClick={nextPlayer}>next player</button>
