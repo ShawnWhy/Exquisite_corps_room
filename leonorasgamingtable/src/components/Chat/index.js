@@ -19,7 +19,7 @@ function Chat(){
 //   const socket = io("http://localhost:3001", {autoConnect:false,
 //   transports: ["websocket", "polling"]
 // });
-const socket = openSocket ("wss://leonoraexquisite.herokuapp.com/",{
+const socket = openSocket ("wss://leonoraexquisitecorpes.herokuapp.com/",{
 
     transports:["websocket","polling"]
 });
@@ -99,7 +99,7 @@ useEffect(()=>{
   {
     setDolls("on");
   } 
-},[])
+},[curtain])
 useEffect(()=>{
   if(tempUsername.length>0){
     setInitialInstruction("please also Select a spirit guide")
@@ -615,7 +615,7 @@ return (
               onChange={(event) => setMessage(event.currentTarget.value)}
             />
             <button className={"chatbtn "+(chat==="on"?"":"invisible")} onClick={handleMessageOut}>speak</button>
-            <button className={"chatbtn "+(chat==="on"?"":"invisible")} onClick={handleMessageOut} onClick={handleMessagetoGhostOut}>speak with ghost</button>
+            <button className={"chatbtn "+(chat==="on"?"":"invisible")} onClick={handleMessagetoGhostOut}>speak with ghost</button>
             <button className={"chatbtn "+(chat==="on"?"":"invisible")} onClick={closeChat}>close chat</button>
             <button className={"chatbtn "+(chat==="on"?"invisible":"")} onClick={openChat}>open chat</button>
 
