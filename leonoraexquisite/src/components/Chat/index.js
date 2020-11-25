@@ -64,6 +64,7 @@ const chatwindowRef = useRef();
 // this happens automatically and changes when the 
 //username changes
 const [roomSelect, setRoomSelect]= useState("");
+const [turnSegment, setTurnSegment]=useState("");
 
 const[dolls, setDolls]=useState("")
 //rotate head animation
@@ -109,6 +110,12 @@ useEffect(()=>{
   }
 
 },[tempUsername])
+
+//creates the segments that the users see
+  useEffect(()=>{
+    createEndDisplay(turnSegment)
+
+  },[turnSegment])
 
   useEffect(() => {
 
@@ -174,8 +181,7 @@ useEffect(()=>{
       console.log("newsentence")
       console.log(segment.text);
       console.log(segment.player)
-      createEndDisplay(segment.text)
-
+      setTurnSegment(segment.text)
       setCurrentPlayer(segment.player);
       setAllStorySegments((allStorySegments) => [...allStorySegments, segment.text
       ])
@@ -307,13 +313,12 @@ useEffect(()=>{
     setRotateHead("on")
 
     socket.open();
-    console.log("emitted sentence to server")
-    console.log(storySegment)
-
     socket.emit("segment",{
       segment:storySegment,
       room:roomSelect}
        )
+       console.log("emitted sentence to server")
+       console.log(storySegment)
     setTimeout(() => {
       setRotateHead("off")
       

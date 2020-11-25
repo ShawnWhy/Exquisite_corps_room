@@ -1,5 +1,5 @@
 {
-  "name": "lady-leonora-s-surreal-game-table",
+  "name": "lady-leonora-s-exquisite-corpse",
   "version": "1.0.0",
   "description": "Play Surrealist Games Across the Internet with Friends!",
   "main": "server.js",
@@ -19,12 +19,12 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ShawnWhy/Lady-Leonora-s-Surreal-Game-Table.git"
+    "url": "git+https://github.com/ShawnWhy/Exquisite_corps_room.git"
   },
-  "author": "",
+  "author": "shawn yu",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ShawnWhy/Lady-Leonora-s-Surreal-Game-Table/issues"
+    "url": "https://github.com/ShawnWhy/Exquisite_corps_room/issues"
   },
-  "homepage": "https://github.com/ShawnWhy/Lady-Leonora-s-Surreal-Game-Table#readme"
+  "homepage": "https://github.com/ShawnWhy/Exquisite_corps_room"
 }

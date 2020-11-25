@@ -10,10 +10,10 @@ const io = require("socket.io").listen(server, {
 
 
 
-app.use(express.static("leonorasgamingtable/build"));
+app.use(express.static("leonoraexquisite/build"));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname,  "leonorasgamingtable/build", "index.html"));
+  res.sendFile(path.join(__dirname,  "leonoraexquisite/build", "index.html"));
 });
 const PORT = process.env.PORT || 3001 ;
 // players with custom IDs
