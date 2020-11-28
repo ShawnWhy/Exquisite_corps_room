@@ -316,8 +316,7 @@ useEffect(()=>{
   //emits the sentence
   const submitSegment =()=>{
     setRotateHead("on")
-    // let tail =  createEndDisplay(storySegment)
-    let tail = storySegment
+    let tail =  createEndDisplay(storySegment)
     socket.open();
     console.log("tail=====  ")
     console.log(tail)
